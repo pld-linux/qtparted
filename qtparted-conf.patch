@@ -1,11 +1,11 @@
---- qtparted-0.2.0/configure.orig	Sat Apr 19 10:46:46 2003
-+++ qtparted-0.2.0/configure	Sat Apr 19 19:02:48 2003
-@@ -53,7 +53,7 @@
+--- qtparted-0.2.3/configure.orig	Sat May 10 16:06:41 2003
++++ qtparted-0.2.3/configure	Sat May 10 16:06:03 2003
+@@ -69,7 +69,7 @@
+ NTFSRESIZEPATH=${NTFSRESIZEPATH:-/usr/sbin/ntfsresize}
+ MKFSEXT3PATH=${MKFSEXT3PATH:-/usr/sbin/mkfs.ext3}
+ MKFSJFSPATH=${MKFSJFSPATH:-/sbin/mkfs.jfs}
+-QTPARTEDDFPATH=${SBINDIR/qtparted_df}
++QTPARTEDDFPATH=${SBINDIR:-/qtparted_df}
+ 
  if [ -z "$QTDIR" ]; then
  	echo 
- 	echo \$QTDIR not set... trying to find qt manually
--	qm=`type -p qmake`
-+	qm=`whence qmake`
- 	if [ -x "$qm" ]; then
- 		echo qmake found in $qm
- 	else 
