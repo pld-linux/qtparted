@@ -8,6 +8,7 @@ License:	GPL v2
 Vendor:		Vanni Brutto <zanac@libero.it>
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}_%{version}-%{subver}.tar.gz
+# Source0-md5:	15c7bfb123a93c9a1666324022eb9aeb
 Patch0:		%{name}-conf.patch
 URL:		http://qtparted.sourceforge.net/
 BuildRequires:	parted-devel >= 1.6.3
