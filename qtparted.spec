@@ -21,6 +21,7 @@ BuildRequires:	parted-devel >= 1.6.3
 BuildRequires:	progsreiserfs-devel >= 0.3.1
 BuildRequires:	qt-devel >= 3.0.3i
 BuildRequires:	rpm-build >= 4.3
+BuildRequires:	parted-static
 %if %{with xfs}
 BuildRequires:	xfsprogs
 %endif 
@@ -35,6 +36,7 @@ BuildRequires:	jfsutils
 %endif
 %if %{with reiserfs}
 BuildRequires:	reiserfsprogs
+BuildRequires:	progsreiserfs-static
 %endif
 %if %{with reiserfs} && %{with static}
 BuildRequires:	reiserfsprogs-static
