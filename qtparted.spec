@@ -1,10 +1,12 @@
+#
+# Conditional build:
 %bcond_without	ext3		# build without ext3 support
 %bcond_without	jfs		# build without jfs support
 %bcond_without	ntfs		# build without ntfs support
 %bcond_without 	reiserfs 	# build without reiserfs support
 %bcond_without	xfs		# build without xfs support
 %bcond_with 	static		# build statically linked qtparted
-
+#
 Summary:	QTParted is a Partition Magic clone
 Summary(pl):	QTParted to klon Partition Magica
 Name:		qtparted
@@ -16,6 +18,8 @@ Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	64f2ed6399fb3ece6263de72ff054435
 URL:		http://qtparted.sourceforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
 %if %{with ext3}
 BuildRequires:	e2fsprogs
 %endif
