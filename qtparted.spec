@@ -2,16 +2,18 @@ Summary:	QTParted is a Partition Magic clone
 Summary(pl):	QTParted to klon Partition Magic'a
 Name:		qtparted
 Version:	0.1.8
-Release:	0.1
+Release:	0.2
 License:	GPL v2
 Vendor:		Vanni Brutto <zanac@libero.it>
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}_%{version}-1.tar.gz
 Patch0:		%{name}-conf.patch
 URL:		http://qtparted.sourceforge.net/
-BuildRequires:	parted >= 1.6.3
+BuildRequires:	parted-devel >= 1.6.3
 BuildRequires:	qt >= 3.0.3
-BuildRequires:	progsreiserfs >= 0.3.1
+BuildRequires:	progsreiserfs-devel >= 0.3.1
+Requires:	parted >= 1.6.3
+Requires:	progsreiserfs >= 0.3.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
