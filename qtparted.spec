@@ -10,13 +10,13 @@
 Summary:	QTParted is a Partition Magic clone
 Summary(pl):	QTParted to klon Partition Magica
 Name:		qtparted
-Version:	0.4.1
-Release:	0.1
+Version:	0.4.2
+Release:	1
 License:	GPL v2
 Vendor:		Vanni Brutto <zanac@libero.it>
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	64f2ed6399fb3ece6263de72ff054435
+# Source0-md5:	818aed6c374ce7acb445dd5627e706ca
 URL:		http://qtparted.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
