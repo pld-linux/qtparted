@@ -20,15 +20,6 @@ Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 URL:		http://qtparted.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-%if %{with ext3}
-BuildRequires:	e2fsprogs
-%endif
-%if %{with jfs}
-BuildRequires:	jfsutils
-%endif
-%if %{with ntfs}
-BuildRequires:	ntfsprogs
-%endif
 BuildRequires:	parted-devel >= 1.6.3
 %if %{with static}
 BuildRequires:	parted-static
@@ -40,13 +31,7 @@ BuildRequires:	progsreiserfs-static >= 0.3.1
 %endif
 %endif
 BuildRequires:	qt-devel >= 3.0.3
-%if %{with reiserfs}
-BuildRequires:	reiserfsprogs
-%endif
 BuildRequires:	rpm-build >= 4.3
-%if %{with xfs}
-BuildRequires:	xfsprogs
-%endif
 Requires:	parted >= 1.6.3
 Requires:	progsreiserfs >= 0.3.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -65,20 +50,29 @@ Qt.
 %build
 %{__aclocal}
 %{__autoconf}
-
+cp -f /usr/share/automake/config.* .
 export QMAKESPEC=%{_datadir}/qt/mkspecs/linux-g++
 export PATH="$PATH:/usr/sbin:/sbin"
 %configure \
-	%{?_without_xfs:--disable-xfs} \
-	%{?_without_ntfs:--disable-ntfs} \
-	%{?_without_ext3:--disable-ext3} \
-	%{?_without_jfs:--disable-jfs} \
-	%{?_without_reiserfs:--disable-reiserfs} \
-	--%{?_with_static:en}%{!?with_static:dis}able-static
+	FSPATH_MKNTFS=/usr/sbin/mkntfs \
+	FSPATH_NTFSRESIZE=/usr/sbin/ntfsresize \
+	FSPATH_MKFSEXT3=/sbin/mkfs.ext3 \
+	FSPATH_MKFSJFS=/sbin/mkfs.jfs \
+	FSPATH_MKFSXFS=/sbin/mkfs.xfs \
+	FSPATH_MOUNT=/bin/mount \
+	FSPATH_UMOUNT=/bin/umount \
+	FSPATH_XFS_GROWFS=/usr/sbin/xfs_growfs \
+	%{!?with_xfs:--disable-xfs} \
+	%{!?with_ntfs:--disable-ntfs} \
+	%{!?with_ext3:--disable-ext3} \
+	%{!?with_jfs:--disable-jfs} \
+	%{!?with_reiserfs:--disable-reiserfs} \
+	--%{?with_static:en}%{!?with_static:dis}able-static
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
