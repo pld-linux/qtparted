@@ -64,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files 
+%files
 %defattr(644,root,root,755)
 %doc README TODO AUTHORS TODO doc
 %attr(755,root,root) %{_sbindir}/*
