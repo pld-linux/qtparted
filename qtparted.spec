@@ -82,6 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/*
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/locale
+%lang(ca) %{_datadir}/%{name}/locale/qtparted_ca.qm
 %lang(cs) %{_datadir}/%{name}/locale/qtparted_cs.qm
 %lang(de) %{_datadir}/%{name}/locale/qtparted_de.qm
 %lang(es) %{_datadir}/%{name}/locale/qtparted_es.qm
