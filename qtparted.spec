@@ -1,4 +1,6 @@
 #
+# TODO: .desktop
+#
 # Conditional build:
 %bcond_without	ext3		# build without ext3 support
 %bcond_without	jfs		# build without jfs support
@@ -11,7 +13,7 @@ Summary:	QTParted is a Partition Magic clone
 Summary(pl):	QTParted to klon Partition Magica
 Name:		qtparted
 Version:	0.4.2
-Release:	1
+Release:	1.1
 License:	GPL v2
 Vendor:		Vanni Brutto <zanac@libero.it>
 Group:		Applications/System
@@ -83,8 +85,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README TODO AUTHORS TODO doc
 %attr(755,root,root) %{_sbindir}/*
-#%{_mandir}/man1/*
-%{_pixmapsdir}/*
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/locale
 %lang(cs) %{_datadir}/%{name}/locale/qtparted_cs.qm
@@ -93,4 +93,8 @@ rm -rf $RPM_BUILD_ROOT
 %lang(fr) %{_datadir}/%{name}/locale/qtparted_fr.qm
 %lang(it) %{_datadir}/%{name}/locale/qtparted_it.qm
 %lang(pl) %{_datadir}/%{name}/locale/qtparted_pl.qm
+%lang(ru) %{_datadir}/%{name}/locale/qtparted_ru.qm
+%lang(ua) %{_datadir}/%{name}/locale/qtparted_ua.qm
 %{_datadir}/%{name}/pics
+%{_pixmapsdir}/*
+%{_mandir}/man1/*
