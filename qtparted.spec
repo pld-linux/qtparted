@@ -18,7 +18,7 @@ Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 URL:		http://qtparted.sourceforge.net/
 BuildRequires:	parted-devel >= 1.6.3
 BuildRequires:	progsreiserfs-devel >= 0.3.1
-BuildRequires:	qt-devel >= 3.0.3i
+BuildRequires:	qt-devel >= 3.0.3
 BuildRequires:	rpm-build >= 4.3
 BuildRequires:	parted-static
 %if %{with xfs}
