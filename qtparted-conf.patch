@@ -1,0 +1,11 @@
+--- qtparted-0.1.8/configure.orig	Sun Apr 13 00:02:56 2003
++++ qtparted-0.1.8/configure	Sun Apr 13 00:03:07 2003
+@@ -15,7 +15,7 @@
+     QMAKESPEC=linux-g++
+ fi
+ 
+-qm=`type -p qmake`
++qm=`whence qmake`
+ if [ -x "$qm" ]; then
+ 	echo qmake found in $qm
+ else 
