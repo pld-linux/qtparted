@@ -3,7 +3,7 @@
 %bcond_without	ntfs		# build without ntfs support
 %bcond_without 	reiserfs 	# build without reiserfs support
 %bcond_without	xfs		# build without xfs support
-%bcond_with 	static		# don't build static
+%bcond_with 	static		# build statically linked qtparted
 Summary:	QTParted is a Partition Magic clone
 Summary(pl):	QTParted to klon Partition Magica
 Name:		qtparted
@@ -15,32 +15,21 @@ Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	fad16013cb070c8cac0f820489cbf75f
 URL:		http://qtparted.sourceforge.net/
-BuildRequires:	parted-devel >= 1.6.3
-%if %{with static}
-BuildRequires:	parted-static
-%endif
-BuildRequires:	progsreiserfs-devel >= 0.3.1
-BuildRequires:	qt-devel >= 3.0.3
-BuildRequires:	rpm-build >= 4.3
-%if %{with xfs}
-BuildRequires:	xfsprogs
-%endif 
+%{?with_ext3:BuildRequires:	e2fsprogs}
+%{?with_jfs:BuildRequires:	jfsutils}
 %if %{with ntfs}
-BuildRequires:	ntfsprogs
+%{?with_ntfs:BuildRequires:	ntfsprogs}
 %endif
-%if %{with ext3}
-BuildRequires:	e2fsprogs
-%endif
-%if %{with jfs}
-BuildRequires:	jfsutils
-%endif
+BuildRequires:	parted-devel >= 1.6.3
+%{?with_static:BuildRequires:	parted-static}
 %if %{with reiserfs}
-BuildRequires:	reiserfsprogs
+BuildRequires:	progsreiserfs-devel >= 0.3.1
+%{?with_static:BuildRequires:	progsreiserfs-static >= 0.3.1}
 %endif
-%if %{with reiserfs} && %{with static}
-BuildRequires:	progsreiserfs-static
-BuildRequires:	reiserfsprogs-static
-%endif
+BuildRequires:	qt-devel >= 3.0.3
+%{?with_reiserfs:BuildRequires:	reiserfsprogs}
+BuildRequires:	rpm-build >= 4.3
+%{?with_xfs:BuildRequires:	xfsprogs}
 Requires:	parted >= 1.6.3
 Requires:	progsreiserfs >= 0.3.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -65,7 +54,7 @@ export PATH="$PATH:/usr/sbin:/sbin"
 	%{?_without_ext3:--disable-ext3} \
 	%{?_without_jfs:--disable-jfs} \
 	%{?_without_reiserfs:--disable-reiserfs} \
-	--%{?_without_static:dis}%{!?_without_static:en}able-static
+	--%{?with_static:en}%{!?with_static:dis}able-static
 %{__make}
 
 %install
@@ -81,4 +70,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/*
 %{_mandir}/man1/*
 %{_pixmapsdir}/*
-%{_datadir}/%{name}
+%dir %{_datadir}/%{name}
+%dir %{_datadir}/%{name}/locale
+%lang(cs) %{_datadir}/%{name}/locale/qtparted_cs.qm
+%lang(de) %{_datadir}/%{name}/locale/qtparted_de.qm
+%lang(es) %{_datadir}/%{name}/locale/qtparted_es.qm
+%lang(fr) %{_datadir}/%{name}/locale/qtparted_fr.qm
+%lang(it) %{_datadir}/%{name}/locale/qtparted_it.qm
+%lang(pl) %{_datadir}/%{name}/locale/qtparted_pl.qm
+%{_datadir}/%{name}/pics
