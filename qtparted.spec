@@ -1,10 +1,10 @@
 # Conditional Build:
-# _without_ntfs		build without ntfs support
-# _without_ext3		build without ext3 support
-# _without_xfs		build without xfs support
-# _without_jfs		build without jfs support
-# _without_reiserfs	build without reiserfs support
-# _without_static	don't build static
+%bcond_without	ext3		# build without ext3 support
+%bcond_without	jfs		# build without jfs support
+%bcond_without	ntfs		# build without ntfs support
+%bcond_without 	reiserfs 	# build without reiserfs support
+%bcond_without	xfs		# build without xfs support
+%bcond_with 	static		# don't build static
 Summary:	QTParted is a Partition Magic clone
 Summary(pl):	QTParted to klon Partition Magica
 Name:		qtparted
@@ -20,11 +20,25 @@ URL:		http://qtparted.sourceforge.net/
 BuildRequires:	parted-devel >= 1.6.3
 BuildRequires:	progsreiserfs-devel >= 0.3.1
 BuildRequires:	qt-devel >= 3.0.3i
-%{!?_without_xfs:BuildRequires:		xfsprogs}
-%{!?_without_ntfs:BuildRequires:	ntfsprogs}
-%{!?_without_ext3:BuildRequires:	e2fsprogs}
-%{!?_without_jfs:BuildRequires:		jfsutils}
-%{!?_without_reiserfs:BuildRequires:	reiserfsprogs}
+BuildRequires:	rpm-build >= 4.3
+%if %{with xfs}
+BuildRequires:	xfsprogs
+%endif 
+%if %{with ntfs}
+BuildRequires:	ntfsprogs
+%endif
+%if %{with ext3}
+BuildRequires:	e2fsprogs
+%endif
+%if %{with jfs}
+BuildRequires:	jfsutils
+%endif
+%if %{with reiserfs}
+BuildRequires:	reiserfsprogs
+%endif
+%if %{with reiserfs} && %{with static}
+BuildRequires:	reiserfsprogs-static
+%endif
 Requires:	parted >= 1.6.3
 Requires:	progsreiserfs >= 0.3.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
