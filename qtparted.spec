@@ -2,7 +2,7 @@ Summary:	QTParted is a Partition Magic clone
 Summary(pl):	QTParted to klon Partition Magic'a
 Name:		qtparted
 Version:	0.1.8
-Release:	0.2
+Release:	0.3
 License:	GPL v2
 Vendor:		Vanni Brutto <zanac@libero.it>
 Group:		Applications/System
@@ -48,4 +48,4 @@ rm -rf $RPM_BUILD_ROOT
 %files 
 %defattr(644,root,root,755)
 %doc README TODO AUTHORS TODO
-%{_bindir}/*
+%attr(755,root,root) %{_bindir}/*
