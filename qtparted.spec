@@ -11,7 +11,7 @@ Patch0:		%{name}-conf.patch
 URL:		http://qtparted.sourceforge.net/
 BuildRequires:	parted-devel >= 1.6.3
 BuildRequires:	progsreiserfs-devel >= 0.3.1
-BuildRequires:	qt >= 3.0.3
+BuildRequires:	qt-devel >= 3.0.3
 Requires:	parted >= 1.6.3
 Requires:	progsreiserfs >= 0.3.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
