@@ -15,7 +15,6 @@ Vendor:		Vanni Brutto <zanac@libero.it>
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	fad16013cb070c8cac0f820489cbf75f
-Patch0:		%{name}-conf.patch
 URL:		http://qtparted.sourceforge.net/
 BuildRequires:	parted-devel >= 1.6.3
 BuildRequires:	progsreiserfs-devel >= 0.3.1
@@ -55,7 +54,6 @@ Qt.
 
 %prep
 %setup -q
-#%patch -p1
 
 %build
 export QMAKESPEC=%{_datadir}/qt/mkspecs/linux-g++
