@@ -21,14 +21,10 @@ URL:		http://qtparted.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	parted-devel >= 1.6.3
-%if %{with static}
-BuildRequires:	parted-static
-%endif
+%{?with_static:BuildRequires:	parted-static}
 %if %{with reiserfs}
 BuildRequires:	progsreiserfs-devel >= 0.3.1
-%if %{with static}
-BuildRequires:	progsreiserfs-static >= 0.3.1
-%endif
+%{?with_static:BuildRequires:	progsreiserfs-static >= 0.3.1}
 %endif
 BuildRequires:	qt-devel >= 3.0.3
 BuildRequires:	rpm-build >= 4.3
