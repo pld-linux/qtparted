@@ -1,4 +1,3 @@
-# Conditional Build:
 %bcond_without	ext3		# build without ext3 support
 %bcond_without	jfs		# build without jfs support
 %bcond_without	ntfs		# build without ntfs support
@@ -17,10 +16,12 @@ Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	fad16013cb070c8cac0f820489cbf75f
 URL:		http://qtparted.sourceforge.net/
 BuildRequires:	parted-devel >= 1.6.3
+%if %{with static}
+BuildRequires:	parted-static
+%endif
 BuildRequires:	progsreiserfs-devel >= 0.3.1
 BuildRequires:	qt-devel >= 3.0.3
 BuildRequires:	rpm-build >= 4.3
-BuildRequires:	parted-static
 %if %{with xfs}
 BuildRequires:	xfsprogs
 %endif 
@@ -35,9 +36,9 @@ BuildRequires:	jfsutils
 %endif
 %if %{with reiserfs}
 BuildRequires:	reiserfsprogs
-BuildRequires:	progsreiserfs-static
 %endif
 %if %{with reiserfs} && %{with static}
+BuildRequires:	progsreiserfs-static
 BuildRequires:	reiserfsprogs-static
 %endif
 Requires:	parted >= 1.6.3
@@ -80,4 +81,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/*
 %{_mandir}/man1/*
 %{_pixmapsdir}/*
-%{_datadir}/%{name}/*
+%{_datadir}/%{name}
