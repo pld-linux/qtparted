@@ -3,9 +3,9 @@
 %bcond_without	ext3		# build without ext3 support
 %bcond_without	jfs		# build without jfs support
 %bcond_without	ntfs		# build without ntfs support
-%bcond_without 	reiserfs 	# build without reiserfs support
+%bcond_without	reiserfs 	# build without reiserfs support
 %bcond_without	xfs		# build without xfs support
-%bcond_with 	static		# build statically linked qtparted
+%bcond_with	static		# build statically linked qtparted
 #
 Summary:	QTParted is a Partition Magic clone
 Summary(pl):	QTParted to klon Partition Magica
