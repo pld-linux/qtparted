@@ -11,7 +11,7 @@ Summary:	QTParted is a Partition Magic clone
 Summary(pl):	QTParted to klon Partition Magica
 Name:		qtparted
 Version:	0.4.5
-Release:	1
+Release:	2
 License:	GPL v2
 Vendor:		Vanni Brutto <zanac@libero.it>
 Group:		Applications/System
@@ -63,7 +63,8 @@ export PATH="$PATH:/usr/sbin:/sbin"
 	%{!?with_ext3:--disable-ext3} \
 	%{!?with_jfs:--disable-jfs} \
 	%{!?with_reiserfs:--disable-reiserfs} \
-	--%{?with_static:en}%{!?with_static:dis}able-static
+	--%{?with_static:en}%{!?with_static:dis}able-static \
+	--with-qt-libraries=%{_libdir}
 %{__make}
 sed -i -e "s/gksu/kdesu/g" data/qtparted.desktop
 
