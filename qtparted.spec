@@ -44,7 +44,7 @@ Qt.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.* .
