@@ -20,7 +20,7 @@ Patch0:		%{name}-desktop.patch
 URL:		http://qtparted.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	parted-devel >= 1.6.3
+BuildRequires:	parted-devel >= 1.6.6
 %{?with_static:BuildRequires:	parted-static}
 %if %{with reiserfs}
 BuildRequires:	progsreiserfs-devel >= 0.3.1
@@ -29,7 +29,7 @@ BuildRequires:	progsreiserfs-devel >= 0.3.1
 BuildRequires:	qt-devel >= 3.0.3
 BuildRequires:	qt-linguist >= 3.0.3
 BuildRequires:	rpm-build >= 4.3
-Requires:	parted >= 1.6.3
+Requires:	parted >= 1.6.6
 Requires:	progsreiserfs >= 0.3.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
