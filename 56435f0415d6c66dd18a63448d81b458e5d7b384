@@ -1,0 +1,6 @@
+- started update to 0.3.2
+- added bconds
+- use %configure
+- use make install
+- added missing files
+- release 0.1, NFY
