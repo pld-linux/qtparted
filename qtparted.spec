@@ -17,6 +17,7 @@ Group:		Applications/System
 Source0:	http://dl.sourceforge.net/qtparted/%{name}-%{version}.tar.bz2
 # Source0-md5:	4541c0aa5475ba38d3cc518c921c8a34
 Patch0:		%{name}-desktop.patch
+Patch1:		kde-ac260.patch
 URL:		http://qtparted.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -44,6 +45,7 @@ Qt.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 cp -f /usr/share/automake/config.* .
