@@ -8,7 +8,7 @@
 %bcond_with	static		# build statically linked qtparted
 #
 Summary:	QTParted is a Partition Magic clone
-Summary(pl):	QTParted to klon Partition Magica
+Summary(pl.UTF-8):   QTParted to klon Partition Magica
 Name:		qtparted
 Version:	0.4.5
 Release:	4
@@ -38,8 +38,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 QTParted is a Partition Magic clone written in C++ using the Qt
 toolkit.
 
-%description -l pl
-QTParted to klon Partition Magica napisany w C++ przy uøyciu toolkitu
+%description -l pl.UTF-8
+QTParted to klon Partition Magica napisany w C++ przy u≈ºyciu toolkitu
 Qt.
 
 %prep
