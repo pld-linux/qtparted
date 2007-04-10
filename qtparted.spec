@@ -27,7 +27,7 @@ BuildRequires:	parted-devel >= 1.6.6
 BuildRequires:	progsreiserfs-devel >= 0.3.1
 %{?with_static:BuildRequires:	progsreiserfs-static >= 0.3.1}
 %endif
-BuildRequires:	qt-devel >= 3.0.3
+BuildRequires:	qt-devel >= 3:3.0.3
 BuildRequires:	qt-linguist >= 3.0.3
 BuildRequires:	rpm-build >= 4.3
 Requires:	parted >= 1.6.6
