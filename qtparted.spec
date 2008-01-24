@@ -19,6 +19,7 @@ Source0:	http://dl.sourceforge.net/qtparted/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-desktop.patch
 Patch1:		kde-ac260.patch
 Patch2:		kde-am.patch
+Patch3:		%{name}-PED_SECTOR_SIZE.patch
 URL:		http://qtparted.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -48,6 +49,7 @@ Qt.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 cp -f /usr/share/automake/config.* .
